@@ -32,14 +32,16 @@ const divider = "----------------------------------";
 
 const owed =
     Math.abs(parseFloat(leoBalance)) + Math.abs(parseFloat(sarahBalance));
+const formattedOwed = owed.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 const leo = `${leoName} ${leoSurname} (Owed: R${Math.abs(
     parseFloat(leoBalance)
 ).toFixed(2)})\n`;
 const sarah = `${sarahName} ${sarahSurname} (Owed: R${Math.abs(
     parseFloat(sarahBalance)
 ).toFixed(2)})\n`;
-const total = `Total amount owed: R${owed.toFixed(2)}`;
+const total = `Total amount owed: R${formattedOwed}`;
 const result = `${leo}${sarah}${divider}\n${total}\n${divider}`;
 
 console.log(result);
+
 
